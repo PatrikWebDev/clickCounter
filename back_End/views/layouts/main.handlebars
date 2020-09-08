@@ -4,9 +4,9 @@
     <meta charset="utf-8">
     <title>Click Counter</title>
     <script>
-        let click = 0;
+        let click = {{counter}};
         function count(){
-            document.getElementById('counter').innerHTML = ++click;
+            document.getElementById('counter').value = ++click;
             click = click
         }
         function reset(){
