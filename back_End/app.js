@@ -1,7 +1,7 @@
 const express = require('express');
 const exphbs  = require('express-handlebars');
 const sqlite3 = require('sqlite3').verbose();
-const db = new sqlite3.Database('counter3.db')
+const db = new sqlite3.Database('counter6.db')
  
 const app = express();
 
@@ -28,9 +28,9 @@ app.get('/', function (req, res) {
 });
 
 app.post('/save', function (req,res){
-  console.log(req.body.counter)
+  console.log(req.body)
     db.serialize(function() {
-        db.all(`INSERT INTO counter (count) VALUES ("${req.body.counter}")`);
+        db.all(`INSERT INTO counter (count) VALUES (${req.body.counter})`);
         db.all("SELECT count from counter", function(err, results) {
             if (err != null) {
                 res.send("Missing from database")

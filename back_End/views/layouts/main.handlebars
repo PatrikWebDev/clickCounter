@@ -4,13 +4,15 @@
     <meta charset="utf-8">
     <title>Click Counter</title>
     <script>
+
         let click = {{counter}};
+        document.getElementById('counter').value = click;
         function count(){
             document.getElementById('counter').value = ++click;
             click = click
         }
         function reset(){
-            document.getElementById('counter').innerHTML = 0;
+            document.getElementById('counter').value = 0;
             click = 0
         } 
     </script>
